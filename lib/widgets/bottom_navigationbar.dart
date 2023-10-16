@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hiirize/pages/contact.dart';
 import 'package:hiirize/pages/events.dart';
 import 'package:hiirize/pages/homepage.dart';
 import 'package:hiirize/utils/constants.dart';
