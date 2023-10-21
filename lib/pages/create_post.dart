@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hiirize/pages/homepage.dart';
+import 'package:hiirize/utils/constants.dart';
 
 class CreatePost extends StatelessWidget {
   const CreatePost({super.key});
@@ -41,25 +42,34 @@ class CreatePost extends StatelessWidget {
                     backgroundColor: MaterialStatePropertyAll(Colors.white),
                   ),
                   onPressed: () {},
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Choose Tag',
-                        style: GoogleFonts.openSans(
-                          color: Colors.black,
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.arrow_drop_down,
-                            color: Colors.black,
-                          )),
+                  child: DropdownButton(
+                    hint: Text("Choose Tag",
+                    style: GoogleFonts.openSans(
+                      color: Colors.black,
+
+                    ),),
+                    items:  [
+                   const    DropdownMenuItem(
+    value: 'Item 1',
+    child: Text('#myReason\nyour reason to start this initiative'),
+  ),
+ const  DropdownMenuItem(
+    value: 'Item 2',
+    child: Text('#struggleStory\nyour struggle you faced during ...'),
+  ),
+ const  DropdownMenuItem(
+    value: 'Item 3',
+    child: Text('#myAction\naction you take for this initiative'),
+  ),
+   DropdownMenuItem(
+    value: 'Item 4',
+    child: Container(
+      decoration: BoxDecoration(color:const  Color(0xFFF5EAE0),),
+      child:const  Text('#achievementSmallOrBig\nevery achievement matters small/big.')),
+  ),
                     ],
-                  )),
+                      onChanged: (value) => {},
+                     )),
             ),
             SizedBox(height: 24.h,),
             Container(
