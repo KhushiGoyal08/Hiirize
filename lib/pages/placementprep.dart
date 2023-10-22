@@ -4,8 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hiirize/pages/choosegender.dart';
 import 'package:hiirize/pages/create_post.dart';
-import 'package:hiirize/pages/homepage.dart';
 import 'package:hiirize/utils/constants.dart';
+import 'package:hiirize/widgets/bottom_navigationbar.dart';
 import 'package:hiirize/widgets/buddyformed.dart';
 import 'package:hiirize/widgets/inside_feed.dart';
 import 'package:hiirize/widgets/outlinecontainer.dart';
@@ -52,7 +52,7 @@ class PlacementPrep extends StatelessWidget {
                           backgroundColor: Colors.white,
                           child: IconButton(
                               onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const HomePage()));
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const BottomnavBar()));
                               },
                               icon: const Icon(Icons.arrow_back_ios)),
                         ),

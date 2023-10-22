@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
@@ -36,10 +37,15 @@ class InsideFeed extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(
+            height: 16.h,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            
             children: childrens,
+          ),
+          SizedBox(
+            height: 16.h,
           ),
           FittedBox(
             fit: BoxFit.contain,

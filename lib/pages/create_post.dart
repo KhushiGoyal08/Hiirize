@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hiirize/pages/homepage.dart';
-import 'package:hiirize/utils/constants.dart';
+import 'package:hiirize/widgets/dropdown.dart';
 
 class CreatePost extends StatelessWidget {
   const CreatePost({super.key});
@@ -27,51 +27,53 @@ class CreatePost extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                IconButton(onPressed: () {
-                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const HomePage()));
-                }, icon: const Icon(Icons.close))
+                IconButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const HomePage()));
+                    },
+                    icon: const Icon(Icons.close))
               ],
             ),
             SizedBox(
               height: 28.h,
             ),
-            Align(
-              alignment: Alignment.topLeft,
-              child: ElevatedButton(
-                  style: const ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(Colors.white),
-                  ),
-                  onPressed: () {},
-                  child: DropdownButton(
-                    hint: Text("Choose Tag",
-                    style: GoogleFonts.openSans(
-                      color: Colors.black,
-
-                    ),),
-                    items:  [
-                   const    DropdownMenuItem(
-    value: 'Item 1',
-    child: Text('#myReason\nyour reason to start this initiative'),
-  ),
- const  DropdownMenuItem(
-    value: 'Item 2',
-    child: Text('#struggleStory\nyour struggle you faced during ...'),
-  ),
- const  DropdownMenuItem(
-    value: 'Item 3',
-    child: Text('#myAction\naction you take for this initiative'),
-  ),
-   DropdownMenuItem(
-    value: 'Item 4',
-    child: Container(
-      decoration: BoxDecoration(color:const  Color(0xFFF5EAE0),),
-      child:const  Text('#achievementSmallOrBig\nevery achievement matters small/big.')),
-  ),
-                    ],
-                      onChanged: (value) => {},
-                     )),
+ Align(
+                alignment: Alignment.topLeft, 
+                child:Stack(
+                  children: [
+                    Container(
+                  decoration: ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+      side:const  BorderSide(
+       
+        strokeAlign: BorderSide.strokeAlignOutside,
+        color:  Color(0xFFD9D9D9),
+      ),
+      borderRadius: BorderRadius.circular(7.47.r),
+    ),
+                    ),
+                      child:  Padding(
+                        padding:  const EdgeInsets.all(16),
+                        child:  Text(
+                        'Choose Tag  \t▾',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.openSans(
+                          color: Colors.black,
+                          fontSize: 12.sp,
+                          
+                          fontWeight: FontWeight.w600,
+                         
+                        ),
+                                          ),
+                      ),
+                    ),
+ const  DropdownButtonExample(),
+                  ],
+                )),
+            SizedBox(
+              height: 24.h,
             ),
-            SizedBox(height: 24.h,),
             Container(
                 width: 314.32.w,
                 height: 175.h,
@@ -90,14 +92,13 @@ class CreatePost extends StatelessWidget {
                       color: const Color(0x68666666),
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      
                     ),
                   ),
                 )),
-                SizedBox(
-                  height: 293.h,
-                ),
-                  Align(
+            SizedBox(
+              height: 293.h,
+            ),
+            Align(
               alignment: Alignment.bottomRight,
               child: ElevatedButton(
                 onPressed: () {},

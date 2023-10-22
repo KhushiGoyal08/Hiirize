@@ -3,10 +3,9 @@ import 'package:flutter/services.dart';
 
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:hiirize/extra/navigate.dart';
-import 'package:hiirize/pages/homepage.dart';
-// import 'package:hiirize/utils/constants.dart';
-// import 'package:hiirize/homepage.dart';
+
+
+import 'package:hiirize/widgets/bottom_navigationbar.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
         builder: (ctx, child) {
           return const MaterialApp(
           
-              debugShowCheckedModeBanner: false, home: HomePage());
+              debugShowCheckedModeBanner: false, home:BottomnavBar());
         });
   }
 }

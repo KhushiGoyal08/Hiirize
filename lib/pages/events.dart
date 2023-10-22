@@ -2,22 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hiirize/pages/create_post.dart';
-import 'package:hiirize/pages/homepage.dart';
-import 'package:hiirize/utils/constants.dart';
+
+import 'package:hiirize/widgets/bottom_navigationbar.dart';
+
 import 'package:hiirize/widgets/buddyformed.dart';
 import 'package:hiirize/widgets/inside_feed.dart';
 import 'package:hiirize/widgets/outlinecontainer.dart';
 import 'package:hiirize/widgets/squarebutton.dart';
 
-class Event extends StatefulWidget {
+class Event extends StatelessWidget {
   const Event({super.key});
 
-  @override
-  State<Event> createState() => _EventState();
-}
-
-class _EventState extends State<Event> {
-  int currentIndex=1;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -54,7 +49,7 @@ class _EventState extends State<Event> {
                 ),
                 GestureDetector(
                   onTap: () {
-                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const HomePage()));
+                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const BottomnavBar()));
                   },
                   child: Container(
                     height: MediaQuery.of(context).size.height * 0.15,
@@ -161,63 +156,7 @@ class _EventState extends State<Event> {
                     ),
         ],
       ),
-     bottomNavigationBar: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topRight: Radius.circular(40),
-            topLeft: Radius.circular(40),
-          ),
-          child: BottomNavigationBar(
-            backgroundColor: primarycolor,
-            currentIndex: currentIndex,
-            unselectedItemColor: Colors.black,
-            items: [
-              BottomNavigationBarItem(
-                  icon: FloatingActionButton(
-                    backgroundColor: Colors.white,
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const HomePage()));
-                      setState(() {
-                        currentIndex = 0;
-                      });
-                    },
-                    child: Icon(
-                      Icons.home_outlined,
-                      color: (currentIndex != 0) ? Colors.black : primarycolor,
-                    ),
-                  ),
-                  label: ""),
-              BottomNavigationBarItem(
-                  icon: FloatingActionButton(
-                    backgroundColor: Colors.white,
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const Event()));
-                      setState(() {
-                        currentIndex = 1;
-                      });
-                    },
-                    child: Icon(
-                      Icons.event_outlined,
-                      color: (currentIndex != 1) ? Colors.black : primarycolor,
-                    ),
-                  ),
-                  label: ""),
-              BottomNavigationBarItem(
-                  icon: FloatingActionButton(
-                    backgroundColor: Colors.white,
-                    onPressed: () {
-                     setState(() {
-                        currentIndex = 2;
-                      });
-                    },
-                    child: Icon(
-                      Icons.person_outline,
-                      color: (currentIndex != 2) ? Colors.black : primarycolor,
-                    ),
-                  ),
-                  label: ""),
-            ],
-          ),
-        ),
+   
     ));
   }
 }

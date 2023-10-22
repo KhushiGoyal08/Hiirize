@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hiirize/utils/constants.dart';
 
@@ -9,11 +10,12 @@ class BuddyFormed extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 12
+        horizontal: 12,
+        vertical: 12,
       ),
       child: Expanded(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -50,6 +52,9 @@ class BuddyFormed extends StatelessWidget {
           ),
               ],
             ),
+            SizedBox(
+              height: 16.h,
+            ),
             Row(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -75,6 +80,9 @@ class BuddyFormed extends StatelessWidget {
        ),
       ],
       ),
+       SizedBox(
+              height: 16.h,
+            ),
        Text(
       'Buddy formed!',
       textAlign: TextAlign.center,

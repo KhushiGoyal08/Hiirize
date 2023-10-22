@@ -1,39 +1,65 @@
-// import 'package:flutter/material.dart';
-// import 'package:hiirize/pages/events.dart';
-// import 'package:hiirize/pages/homepage.dart';
-// import 'package:hiirize/utils/constants.dart';
-// import 'package:hiirize/widgets/bottomicons.dart';
+import 'package:flutter/material.dart';
+import 'package:hiirize/pages/events.dart';
+import 'package:hiirize/pages/homepage.dart';
+import 'package:hiirize/utils/constants.dart';
 
-// class BottomnavigationBar extends StatelessWidget {
-//   const BottomnavigationBar({super.key});
+class BottomnavBar extends StatefulWidget {
+  const BottomnavBar({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: MediaQuery.of(context).size.width,
-//       height: 72,
-//       decoration: ShapeDecoration(
-//     color: primarycolor,
-//     shape: const RoundedRectangleBorder(
-//       borderRadius: BorderRadius.only(
-//         topLeft: Radius.circular(16),
-//         topRight: Radius.circular(16),
-//       ),
-//     ),
-//       ),
-//       child: Padding(
-//         padding: const EdgeInsets.symmetric(
-//           horizontal: 30
-//         ),
-//         child: Row(
-//           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//           children: [
-//            BottomIcons(icon: Icons.home_outlined,fun: const HomePage(),),
-//             BottomIcons(icon: Icons.event_outlined,fun: const Event(),),
-//              BottomIcons(icon: Icons.person_outlined,fun: const HomePage(),),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+  @override
+  State<BottomnavBar> createState() => _BottomnavBarState();
+}
+
+class _BottomnavBarState extends State<BottomnavBar> {
+    var currentIndex=0;
+    List<Widget> screen=[
+     const  HomePage(),
+     const  Event(),
+     const HomePage()
+    ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: IndexedStack(
+      index: currentIndex,
+        children:screen,
+      ),
+      bottomNavigationBar: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topRight: Radius.circular(40),
+            topLeft: Radius.circular(40),
+          ),
+          child: BottomNavigationBar(
+            backgroundColor: primarycolor,
+            currentIndex: currentIndex,
+            unselectedItemColor: Colors.black,
+            onTap: (value){
+              setState(() {
+                currentIndex=value;
+              });
+            },
+            items: [
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.home_outlined,
+                    color: (currentIndex != 0) ? Colors.black : Colors.white,
+                  ),
+                  label: ""),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.event_outlined,
+                    color: (currentIndex != 1) ? Colors.black :Colors.white,
+                  ),
+                  label: ""),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.person_outline,
+                    color: (currentIndex != 2) ? Colors.black :Colors.white,
+                  ),
+                  label: ""),
+            ],
+          ),
+        ),
+    );
+  }
+}

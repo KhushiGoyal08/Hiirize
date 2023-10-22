@@ -26,9 +26,11 @@ class ChooseGender extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  IconButton(onPressed: () {
-                    Navigator.pop(context);
-                  }, icon: const Icon(Icons.close))
+                  IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(Icons.close))
                 ],
               ),
               SizedBox(
@@ -36,6 +38,7 @@ class ChooseGender extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
                 children: [
                   Container(
                     width: 95.w,
@@ -98,7 +101,6 @@ class ChooseGender extends StatelessWidget {
               ),
               Container(
                 width: 335.w,
-                height: 245.h,
                 decoration: ShapeDecoration(
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
@@ -110,21 +112,24 @@ class ChooseGender extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8.r),
                   ),
                 ),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        'Whatsapp number or telegram userlD',
-                        style: GoogleFonts.openSans(
-                          color: Colors.black,
-                          fontSize: 15.sp,
-                          fontWeight: FontWeight.w600,
-                          height: 0.09,
+                child: Padding(
+                  padding: const EdgeInsets.all(25),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          'Whatsapp number or telegram userlD',
+                          style: GoogleFonts.openSans(
+                            color: Colors.black,
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w600,
+                            height: 0.09,
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(16.w),
-                        child: TextField(
+                        SizedBox(
+                          height: 24.h,
+                        ),
+                        TextField(
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(),
                             label: Center(
@@ -140,32 +145,33 @@ class ChooseGender extends StatelessWidget {
                             ),
                           ),
                         ),
-                      ),
-                      Text(
-                        "(We'll soon realease in app chat feature.)",
-                        style: GoogleFonts.openSans(
-                          color: Colors.black,
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w300,
-                          letterSpacing: 0.10,
+                         SizedBox(
+                          height: 24.h,
                         ),
-                      ),
-                      ElevatedButton(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const SomeRules()));
-                          },
-                          style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStatePropertyAll(primarycolor),
-                            shape: MaterialStatePropertyAll(
-                              RoundedRectangleBorder(
+                        Text(
+                          "(We'll soon realease in app chat feature.)",
+                          style: GoogleFonts.openSans(
+                            color: Colors.black,
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w300,
+                            letterSpacing: 0.10,
+                          ),
+                        ),
+                         SizedBox(
+                          height: 24.h,
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const SomeRules()));
+                            },
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: Size.fromHeight(50.h),
+                              backgroundColor: primarycolor,
+                              shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(100.r),
                               ),
                             ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 126.5.w, vertical: 16.h),
                             child: Text(
                               'Next',
                               style: GoogleFonts.openSans(
@@ -173,19 +179,23 @@ class ChooseGender extends StatelessWidget {
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w600,
                               ),
-                            ),
-                          )),
-                    ]),
+                            )),
+                      ]),
+                ),
               ),
               SizedBox(
                 height: 24.h,
               ),
-              Text(
-                '''Provide whatsapp/telegram to chat once paired. \nUse telegram userld if you doesn't want to\ndisclose your number.''',
-                style: GoogleFonts.roboto(
-                  color: Colors.black,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w300,
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  '''Provide whatsapp/telegram to chat once paired. \nUse telegram userld if you doesn't want to\ndisclose your number.''',
+                  textAlign: TextAlign.left,
+                  style: GoogleFonts.roboto(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
             ]),

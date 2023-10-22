@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hiirize/pages/events.dart';
 import 'package:hiirize/pages/placementprep.dart';
 import 'package:hiirize/utils/constants.dart';
 
 import 'package:hiirize/widgets/smallcard.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-    int currentIndex=0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -171,16 +164,19 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               const Icon(Icons.messenger_outline),
                               const SizedBox(
-                                width: 3,
+                                width: 5,
                               ),
-                              Text(
-                                'Msg Interest to Us',
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.openSans(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
-                                  height: 0.10,
+                              Padding(
+                                padding: const EdgeInsets.only(top: 5),
+                                child: Text(
+                                  'Msg Interest to Us',
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.openSans(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    height: 0.10,
+                                  ),
                                 ),
                               ),
                             ],
@@ -191,63 +187,6 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ],
-        ),
-        bottomNavigationBar: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topRight: Radius.circular(40),
-            topLeft: Radius.circular(40),
-          ),
-          child: BottomNavigationBar(
-            backgroundColor: primarycolor,
-            currentIndex: currentIndex,
-            unselectedItemColor: Colors.black,
-            items: [
-              BottomNavigationBarItem(
-                  icon: FloatingActionButton(
-                    backgroundColor: Colors.white,
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const HomePage()));
-                      setState(() {
-                        currentIndex = 0;
-                      });
-                    },
-                    child: Icon(
-                      Icons.home_outlined,
-                      color: (currentIndex != 0) ? Colors.black : primarycolor,
-                    ),
-                  ),
-                  label: ""),
-              BottomNavigationBarItem(
-                  icon: FloatingActionButton(
-                    backgroundColor: Colors.white,
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const Event()));
-                      setState(() {
-                        currentIndex = 1;
-                      });
-                    },
-                    child: Icon(
-                      Icons.event_outlined,
-                      color: (currentIndex != 1) ? Colors.black : primarycolor,
-                    ),
-                  ),
-                  label: ""),
-              BottomNavigationBarItem(
-                  icon: FloatingActionButton(
-                    backgroundColor: Colors.white,
-                    onPressed: () {
-                     setState(() {
-                        currentIndex = 2;
-                      });
-                    },
-                    child: Icon(
-                      Icons.person_outline,
-                      color: (currentIndex != 2) ? Colors.black : primarycolor,
-                    ),
-                  ),
-                  label: ""),
-            ],
-          ),
         ),
       ),
     );
